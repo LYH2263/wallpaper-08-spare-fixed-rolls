@@ -38,3 +38,25 @@ def list_runs(limit: int = 50):
         return out
     finally:
         conn.close()
+
+
+def get_run(run_id: int):
+    conn = connect()
+    try:
+        row = conn.execute(
+            """
+            SELECT r.*, w.name wall_name, rl.name roll_name
+            FROM calc_runs r
+            LEFT JOIN walls w ON w.id=r.wall_id
+            LEFT JOIN rolls rl ON rl.id=r.roll_id
+            WHERE r.id=?
+            """,
+            (run_id,),
+        ).fetchone()
+        if not row:
+            return None
+        d = dict(row)
+        d["result"] = json.loads(d.pop("result_json"))
+        return d
+    finally:
+        conn.close()

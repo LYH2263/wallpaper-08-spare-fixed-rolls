@@ -26,3 +26,16 @@ def roll_count(
         "strips_per_roll": strips_per_roll,
         "rolls": rolls,
     }
+
+
+def apply_spare(rolls: int, spare_enabled: bool, spare_n: int) -> dict:
+    """Fixed spare rolls on top of the base count: order = base + N when enabled."""
+    n = int(spare_n)
+    if n < 0:
+        raise ValueError("spare_n must be >= 0")
+    applied = n if spare_enabled else 0
+    return {
+        "spare_enabled": bool(spare_enabled),
+        "spare_n": applied,
+        "order_rolls": int(rolls) + applied,
+    }
