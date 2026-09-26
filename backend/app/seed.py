@@ -38,5 +38,6 @@ def init_db():
             ],
         )
         conn.execute("INSERT INTO settings(key,value) VALUES ('unit','roll')")
+        conn.execute("INSERT INTO settings(key,value) VALUES ('spare_default_n','0')")
         conn.commit()
     conn.close()

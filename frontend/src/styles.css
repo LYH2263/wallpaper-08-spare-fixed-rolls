@@ -7,3 +7,13 @@ body { margin: 0; font-family: Georgia, serif; background: #faf3e8; }
 .strip { width: 14px; background: linear-gradient(#c49a6c, #8b5a2b); border-radius: 2px 2px 0 0; }
 .roll-chip { display: inline-block; margin: 0.25rem; padding: 0.5rem; background: #fff; border: 1px dashed #6b4226; }
 .warn { color: #a00; }
+.hint { color: #6b4226; font-size: 0.9rem; }
+.spare-field { margin: 0 0.75rem; }
+.spare-field input[type=number] { width: 5rem; margin: 0 0.25rem; }
+.roll-cols { border-collapse: collapse; margin: 0.5rem 0; }
+.roll-cols td { border: 1px solid #d8c3a5; padding: 0.25rem 0.75rem; }
+.roll-cols .order-row td { background: #fff4e0; }
+.settings-row, .lookup-row { margin: 0.5rem 0; display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap; }
+.settings-row input, .lookup-row input { width: 6rem; }
+.run-card { margin: 0.75rem 0; padding: 0.5rem 0.75rem; background: #fff; border: 1px dashed #6b4226; }
+
